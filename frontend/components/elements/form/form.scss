@@ -1,0 +1,46 @@
+/**************************************************************************************************
+FORM STYLES
+**************************************************************************************************/
+@import '../../layouts/styles_globals.scss';
+
+.form-table {
+
+    // border-collapse: initial;
+    // border-spacing: 6px;
+
+    td {
+    }
+    .first-col {
+        padding-bottom: 6px;
+    }
+    .second-col {
+        width: 100%;
+        padding-bottom: 6px;
+        padding-left: 6px;
+    }
+
+    label {
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .textbox-small {
+        width: 90px;
+        color: black;
+    }
+    .textbox-medium {
+        width: 150px;
+        color: black;
+    }
+    .textbox-number {
+        width: 80px;
+        color: black;
+        text-align: center;
+    }
+
+
+    select {
+        color: black;
+    }
+}
+

@@ -1,0 +1,132 @@
+/**************************************************************************************************
+COMMON STYLES
+**************************************************************************************************/
+@import '../../layouts/styles_globals.scss';
+
+$tableBorder: black;
+$tablePagination: BlueViolet;
+
+.button-wrapper {
+    position: relative;
+    margin: 10px 0px 10px 10px;
+    text-align: center;
+
+    .disable-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0; left: 0;
+
+        cursor: not-allowed;
+        background-color: Silver  ;
+        opacity: 0.4;
+    }
+
+    .button-format {
+        padding: 6px 10px;
+        border: 2px outset DarkGoldenRod  ;
+        border-radius: 1px;
+        background: LightBlue;
+        color: black;
+    }
+}
+
+.plot-wrapper {
+
+    .empty-plot {
+        width: 100%;
+        height: 100%;
+        border: 1px solid $tablePagination;
+        border-radius: 2px;
+
+        color: #325d81;         // steelblue
+        font-weight: bold;   
+
+        .loading-icon {
+            height: 80px;
+        }
+    }
+}
+
+.progress-bar {
+    position: relative;
+    height: 20px;
+    width: 100%;
+    margin: 4px;
+    border-radius: 50px;
+    border: 1px solid DarkGreen;
+
+    .filler {
+        background: #1DA598;
+        height: 100%;
+        border-radius: inherit;
+        transition: width .2s ease-in;
+    }
+}
+
+.table-wrapper {
+    display: inline-table;
+    letter-spacing: normal;     // reset pureg 
+
+    .table-container {
+        margin-top: 6px;
+        background: white;
+        color: black;
+    
+        .table-header {
+            text-align: left;
+            white-space: unset; 
+            font-weight: bold;
+        }
+        .table-text {
+            text-align: left;
+            //white-space: unset; 
+            word-wrap: break-word;
+        }
+        .center-text {
+            text-align: center;
+        }
+
+        .ReactTable {
+            border: none !important;
+        
+            .rt-table {
+                border: 1px solid $tableBorder;
+            }
+            .rt-thead.-header {
+                border-bottom: 1px solid $tableBorder;
+                box-shadow: none;
+            }
+            .rt-thead .rt-th {
+                border-right-color: $tableBorder;
+            }
+            .rt-tbody .rt-tr-group {
+                border-bottom-color: $tableBorder;
+            }
+            .rt-tbody .rt-td {
+                border-right-color: $tableBorder;
+            }
+            .pagination-bottom {
+                border-left: 1px solid $tablePagination;
+                border-right: 1px solid $tablePagination;
+                border-bottom: 1px solid $tablePagination;
+                .-pagination {
+                    border: none;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+    .empty-table {
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        border-radius: 2px;
+
+        .loading-icon {
+            height: 60px;
+        }
+    }
+}
+

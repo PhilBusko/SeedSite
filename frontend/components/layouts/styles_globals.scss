@@ -1,0 +1,147 @@
+/**************************************************************************************************
+GLOBAL STYLES
+**************************************************************************************************/
+
+// Original Theme
+
+$navBkgd:#b7c9e1;           // LightSteelBlue
+$navText: black;
+$navHighlight: #5c7a1f;      // OliveDrab 
+
+$contentBkgd: white;
+$controlBkgd: lightgray;
+$contentText: #1a1a1a; 
+$contentHighlight: aqua;
+
+
+// Timeless & Nautical
+/*
+$navBkgd: #1e656d; 
+$navText: white;
+$navHighlight: goldenrod;
+
+$contentBkgd: #00293C;
+$controlBkgd: #001023;
+$contentText: white; 
+$contentHighlight: grey;
+
+$movieBkgd: #B4B4B4; //#F1F3CE;
+$movieText: black;
+$movieHighlight: #F62A00;
+*/
+
+// Violet Sunset
+/*
+$navBkgd: #102A49; 
+$navText: white;
+$navHighlight: goldenrod;
+
+$contentBkgd: #4B4345;
+$controlBkgd: #75524A;
+$contentText: white; 
+$contentHighlight: grey;
+
+$movieBkgd: #F79B77;
+$movieText: black;
+$movieHighlight: blue;
+*/
+
+
+
+// Trendy & Metropolitan
+/*
+$navBkgd: #4D585B; 
+$navText: white;
+$navHighlight: goldenrod;
+
+$contentBkgd: #488A99;
+$controlBkgd: #2F7180;
+$contentText: white; 
+$contentHighlight: grey;
+
+$movieBkgd: #B4B4B4;
+$movieText: black;
+$movieHighlight: crimson;
+*/
+
+
+/**************************************************************************************************
+FONTS
+**************************************************************************************************/
+
+
+//@import '~@fortawesome/fontawesome-free/css/all.css';
+
+
+/**************************************************************************************************
+RESPONSIVENESS
+**************************************************************************************************/
+
+@import '~purecss/build/pure-min.css';
+@import '~purecss/build/grids-responsive-min.css';
+//@import './purecss-extension.css';
+//@import '~purecss/build/purecss-extension.css';
+
+// override pure fonts
+.pure-g { //}, .pure-g [class *= "pure-u"], .pure-g [class*=pure-u] {
+   font-family: inherit !important;
+}
+
+
+/* Responsive setters for property values */
+/* Structure of $property-map: { $property-name: (default, sm, md, lg, xl) } */
+
+@mixin responsive-setter($property-map, $limit: 5) {
+    @for $i from 1 through 5 {
+        @if ($i == 1 and $i <= $limit) {
+            @include _responsive-setter-helper($property-map, $i);
+        }
+        @if ($i == 2 and $i <= $limit) {
+            @include pure-sm-layout() {
+                @include _responsive-setter-helper($property-map, $i);
+            }
+        }
+        @if ($i == 3 and $i <= $limit) {
+            @include pure-md-layout() {
+                @include _responsive-setter-helper($property-map, $i);
+            }
+        }
+        @if ($i == 4 and $i <= $limit) {
+            @include pure-lg-layout() {
+                @include _responsive-setter-helper($property-map, $i);
+            }
+        }
+        @if ($i == 5 and $i <= $limit) {
+            @include pure-xl-layout() {
+                @include _responsive-setter-helper($property-map, $i);
+            }
+        }
+    }
+}
+
+@mixin _responsive-setter-helper($property-map, $value-index) {
+    @each $property-name, $property-values in $property-map {
+        $value: nth($property-values, $value-index);
+        @if ($value) {
+            #{$property-name}: $value;
+        }
+    }
+}
+
+
+/**************************************************************************************************
+BROWSER COMPATIBILITY
+**************************************************************************************************/
+
+@mixin chrome-styles() {
+   @media screen and (-webkit-min-device-pixel-ratio:0) {
+       @content;
+   }
+}
+
+@mixin ie-styles {  /* IE10 and IE11 */
+   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+       @content;
+   }
+}
+

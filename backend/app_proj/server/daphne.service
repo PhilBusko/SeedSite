@@ -1,0 +1,15 @@
+# link this to /etc/systemd/system/
+
+[Unit]
+Description=Webserver Daphne Service
+After=network.target
+
+[Service]
+Type=simple
+User=philip
+WorkingDirectory=/home/philip/codebase/backend/app_proj
+ExecStart=/usr/bin/python3 /usr/local/bin/daphne -b 127.0.0.1 -p 2050 server.asgi:application
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
