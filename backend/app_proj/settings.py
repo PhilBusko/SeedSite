@@ -99,9 +99,9 @@ if 'webserver' in socket.gethostname() or os.environ.get("CLOUD_DB", False):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'HOST': '', 
+            'HOST': '35.230.168.105', 
             'PORT': '5432',
-            'NAME': 'research',
+            'NAME': 'seed-site',
             'USER': 'postgres',
             'PASSWORD': '3r4t5y6u7i',
         }
