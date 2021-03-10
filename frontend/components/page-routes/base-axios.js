@@ -30,7 +30,7 @@ class BaseAxios extends React.Component {
         axios({
             url: 'api/base-module/tabular/',
         }).then( success => {
-            //console.log(success.data);
+            console.log(success.data);
             this.setState({ 'tabular': success.data.legoSets });
         }).catch( error => {
             console.log(error);
