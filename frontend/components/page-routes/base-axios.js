@@ -2,7 +2,7 @@
 BASE AXIOS PAGE
 **************************************************************************************************/
 import React, { setGlobal } from 'reactn';
-import axios from 'axios';
+import {default as axios} from '../app-main/axios-wrapper';
 import MenuLayout from '../layouts/menu-layout'
 import * as CM from '../elements/common/_index'
 import * as FM from '../elements/form/_index'
@@ -27,10 +27,9 @@ class BaseAxios extends React.Component {
 
 
     componentDidMount() {
-        axios({
-            url: 'api/base-module/tabular/',
-        }).then( success => {
-            console.log(success.data);
+        axios.get('/api/base-module/tabular/')
+        .then( success => {
+            //console.log(success.data);
             this.setState({ 'tabular': success.data.legoSets });
         }).catch( error => {
             console.log(error);
@@ -104,13 +103,18 @@ class BaseAxios extends React.Component {
 
                             <br></br>
 
-                            {
-                                this.state.tabular.map((item, idx) =>
-                                    <div key={idx}>
-                                        { item.set_no } { item.name } 
-                                    </div>
-                                )
-                            }
+                            {(() => {
+                                if (this.state.tabular.length > 0) { return (
+                                    this.state.tabular.map((item, idx) =>
+                                        <div key={idx}>
+                                            { item.set_no } { item.name } 
+                                        </div>
+                                    )
+                                )} 
+                                else { return (
+                                    <div>No tabular data</div>
+                                )}
+                            })()}
 
                         </div>
                     </div>

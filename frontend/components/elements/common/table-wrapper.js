@@ -3,7 +3,6 @@ TABLE WRAPPER
 **************************************************************************************************/
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { When } from 'react-if';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import './common.scss';
@@ -81,38 +80,42 @@ class TableWrapper extends React.Component {
 
         return (
             <div className='table-wrapper' style={ this.props.tableRows.length == 0 ? this.props.sizeStyles : {} }>
-                <When condition={ !!this.props.title }>
-                    <div className='strong-font'>
-                        { this.props.title }
-                    </div>
-                </When>
 
-                <When condition={ this.props.tableRows.length > 0 }>
-                { () =>
-                    <div className='table-container small-font'>
-                        <ReactTable
-                            data={ this.props.tableRows }
-                            columns={ this.getColumnsDef() }
-                            pageSize={ pageSize }
-                            //minRows={ 1 }
-                            showPagination={ pagination }
-                            sortable={ false }
-                            resizable={ false }
-                            showPageSizeOptions= { false }
-                        />
-                    </div>
-                }
-                </When>
-                <When condition={ this.props.isLoading == true }>
-                    <div className='empty-table even-panel'>
-                        <img src={ this.loadingIcon } className='loading-icon' alt='loading'/>
-                    </div>
-                </When>
-                <When condition={ this.props.tableRows.length == 0 && this.props.isLoading == false}>
-                    <div className='empty-table even-panel'>
-                        No Data
-                    </div>
-                </When>
+                {(() => {
+                    if (!!this.props.title) { return (
+                        <div className='strong-font'>
+                            { this.props.title }
+                        </div>
+                    )} 
+                })()}
+
+                {(() => {
+                    if (this.props.tableRows.length > 0) { return (
+                        <div className='table-container small-font'>
+                            <ReactTable
+                                data={ this.props.tableRows }
+                                columns={ this.getColumnsDef() }
+                                pageSize={ pageSize }
+                                //minRows={ 1 }
+                                showPagination={ pagination }
+                                sortable={ false }
+                                resizable={ false }
+                                showPageSizeOptions= { false }
+                            />
+                        </div>
+                    )} 
+                    else if (this.props.isLoading == true) { return (
+                        <div className='empty-table even-panel'>
+                            <img src={ this.loadingIcon } className='loading-icon' alt='loading'/>
+                        </div>
+                    )} 
+                    else { return (
+                        <div className='empty-table even-panel'>
+                            No Data
+                        </div>
+                    )}
+                })()}
+
             </div>
         );
     }

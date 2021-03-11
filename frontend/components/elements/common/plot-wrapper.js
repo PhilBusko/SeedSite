@@ -3,7 +3,6 @@ PLOT WRAPPER ELEMENT
 **************************************************************************************************/
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { When } from 'react-if';
 import './common.scss';
 
 import createPlotlyComponent from 'react-plotlyjs';
@@ -31,29 +30,28 @@ class PlotWrapper extends React.Component {
     render() {
         return (
             <div className='plot-wrapper' style={ this.props.sizeStyles }>
-                <When condition={ Object.keys(this.props.plotConfig).length > 0 }>
-                    { () => 
+                {(() => {
+                    if (Object.keys(this.props.plotConfig).length > 0) { return (
                         <PlotlyComponent 
                             data={ this.props.plotConfig.data }
                             layout={ this.props.plotConfig.layout }
                             config={{ 'staticPlot': this.props.isStatic }}
                         />  
-                    }
-                </When>
-                <When condition={ this.props.isLoading == true }>
-                    <div className='empty-plot even-panel'>
-                        <img src={ this.loadingIcon } className='loading-icon' alt='loading'/>
-                    </div>
-                </When>
-                <When condition={ Object.keys(this.props.plotConfig).length == 0 && this.props.isLoading == false}>
-                    <div className='empty-plot even-panel'>
-                        No Data
-                    </div>
-                </When>
+                    )} 
+                    else if (this.props.isLoading == true) { return (
+                        <div className='empty-plot even-panel'>
+                            <img src={ this.loadingIcon } className='loading-icon' alt='loading'/>
+                        </div>
+                    )} 
+                    else { return (
+                        <div className='empty-plot even-panel'>
+                            No Data
+                        </div>
+                    )}
+                })()}
             </div>
         );
     }
 }
 
 export default PlotWrapper;
-

@@ -21,15 +21,9 @@ serviceWorker.unregister();
 
 
 // GLOBAL STATE
+// this doesn't work
 
 setGlobal({
-	devicesList: [],
+	envHost: 'hostll',
 });
-
-
-// AXIOS
-
-axios.defaults.baseURL = 'http://localhost:8000';
-//axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
 

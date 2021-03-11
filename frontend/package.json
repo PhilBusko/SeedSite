@@ -56,7 +56,6 @@
     "react-app-polyfill": "^1.0.6",
     "react-dev-utils": "^10.2.0",
     "react-dom": "^16.13.0",
-    "react-if": "^3.4.3",
     "react-plotlyjs": "^0.4.4",
     "react-router-dom": "^5.1.2",
     "react-table-6": "^6.11.0",
