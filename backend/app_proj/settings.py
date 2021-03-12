@@ -34,10 +34,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -114,7 +112,15 @@ REACT_APP_DIR = os.path.join(os.path.dirname(BACKEND_PATH), 'frontend')
 # ]
 
 ALLOWED_HOSTS = ['*'] 
-CORS_ORIGIN_ALLOW_ALL = True  
+CORS_ALLOW_ALL_ORIGINS = True
+
+
+
+#CORS_ORIGIN_ALLOW_ALL = True  
+
+#CORS_ALLOW_CREDENTIALS = True
+
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
