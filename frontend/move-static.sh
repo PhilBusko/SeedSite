@@ -1,20 +1,19 @@
 #!/bin/sh
 
 echo "# restructure static files"
+cd ~/Projects/SeedSite/codebase/frontend/build
 
-echo "$ cp /static/css /css"
-cp -r ~/Projects/SeedSite/codebase/frontend/build/static/css/. ~/Projects/SeedSite/codebase/frontend/build/css
+echo "$ cp -r static/css/. css"
+cp -r static/css/. css
 
-echo "$ cp /static/js /js"
-cp -r ~/Projects/SeedSite/codebase/frontend/build/static/js/. ~/Projects/SeedSite/codebase/frontend/build/js
+echo "$ cp -r static/js/. js"
+cp -r static/js/. js
 
-echo "$ cp /static/media /media"
-cp -r ~/Projects/SeedSite/codebase/frontend/build/static/media/. ~/Projects/SeedSite/codebase/frontend/build/media
+echo "$ cp -r static/media/. media"
+cp -r static/media/. media
 
-echo "$ rm /static/"
-rm -rf ~/Projects/SeedSite/codebase/frontend/build/static
+echo "$ rm -rf static"
+rm -rf static
 
-echo "$ ls /frontend/build"
-ls -l ~/Projects/SeedSite/codebase/frontend/build
-
-
+echo "$ ls -l frontend/build"
+ls -l .

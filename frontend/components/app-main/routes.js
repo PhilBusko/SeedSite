@@ -5,15 +5,15 @@ import * as PR from '../page-routes/_index.js'
 
 export const RoutesConfig = [
     {
-        title: 'Base Websocket',
-        path: '/base-websocket',
-        component: PR.BaseWebsocket,
-        order: 1,
-    },
-    {
         title: 'Base Axios',
         path: '/base-axios',
         component: PR.BaseAxios,
+        order: 1,
+    },
+    {
+        title: 'Base Websocket',
+        path: '/base-websocket',
+        component: PR.BaseWebsocket,
         order: 2,
     },
     {

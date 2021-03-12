@@ -66,8 +66,8 @@ CONNECTIONS
 
 ROOT_URLCONF = 'app_proj.urls'
 STATIC_URL = '/static/'
-STATIC_ROOT = 'app_proj/static'     # collect static goes here 
-MEDIA_ROOT = 'app_proj/media'  
+# STATIC_ROOT = 'app_proj/static'    
+# MEDIA_ROOT = 'app_proj/media'  
 
 # used by server files
 ASGI_APPLICATION = 'app_proj.routing.application'
@@ -109,11 +109,11 @@ if 'webserver' in socket.gethostname() or os.environ.get("CLOUD_DB", False):
 
 print(f"Database Host: {DATABASES['default']['HOST']}")
 
-REACT_APP_DIR = os.path.join(os.path.dirname(BACKEND_PATH), 'frontend') 
-STATICFILES_DIRS = [
-    os.path.join(REACT_APP_DIR, 'build', 'static'),
-    os.path.join(REACT_APP_DIR, 'build'),
-]
+# REACT_APP_DIR = os.path.join(os.path.dirname(BACKEND_PATH), 'frontend') 
+# STATICFILES_DIRS = [
+#     os.path.join(REACT_APP_DIR, 'build', 'static'),
+#     os.path.join(REACT_APP_DIR, 'build'),
+# ]
 
 CORS_ORIGIN_ALLOW_ALL = True  
 

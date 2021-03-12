@@ -3,8 +3,7 @@ COMMON UTILITY
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 import os, time
 ROOT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-print(ROOT_PATH)
-# C:\Projects\Seed_Webserver\codebase\backend
+#print(ROOT_PATH)
 
 
 def getNowStamp():
