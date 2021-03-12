@@ -7,8 +7,8 @@ BACKEND_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # C:\Projects\SeedSite\codebase\backend
 
 # not sure why this needs to be added for daphne to run on production 
-sys.path.append(BACKEND_PATH)
-os.environ['PATH'] = f"{os.environ['PATH']};{BACKEND_PATH};"     # for windows only ?
+# sys.path.append(BACKEND_PATH)
+# os.environ['PATH'] = f"{os.environ['PATH']};{BACKEND_PATH};"     # for windows only ?
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -66,7 +66,8 @@ CONNECTIONS
 
 ROOT_URLCONF = 'app_proj.urls'
 STATIC_URL = '/static/'
-# STATIC_ROOT = 'app_proj/static'    
+
+#STATIC_ROOT = 'home/phillip/Projects/SeedSite/codebase/frontend/build'    
 # MEDIA_ROOT = 'app_proj/media'  
 
 # used by server files
@@ -109,7 +110,7 @@ if 'webserver' in socket.gethostname() or os.environ.get("CLOUD_DB", False):
 
 print(f"Database Host: {DATABASES['default']['HOST']}")
 
-# REACT_APP_DIR = os.path.join(os.path.dirname(BACKEND_PATH), 'frontend') 
+REACT_APP_DIR = os.path.join(os.path.dirname(BACKEND_PATH), 'frontend') 
 # STATICFILES_DIRS = [
 #     os.path.join(REACT_APP_DIR, 'build', 'static'),
 #     os.path.join(REACT_APP_DIR, 'build'),
