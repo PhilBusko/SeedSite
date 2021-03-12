@@ -27,7 +27,7 @@ INSTALLED_APPS = [
 	'rest_framework',
     'corsheaders',
     'channels',
-    'django_extensions',
+    #'django_extensions',
     # custom apps
     'base_module',
 ]
