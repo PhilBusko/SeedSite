@@ -68,7 +68,7 @@ CONNECTIONS
 
 
 # used by server files
-# ASGI_APPLICATION = 'app_proj.routing.application'
+ASGI_APPLICATION = 'app_proj.routing.application'
 # WSGI_APPLICATION = 'app_proj.wsgi.application'
 
 CHANNEL_LAYERS = {
