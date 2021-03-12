@@ -89,7 +89,7 @@ ssh-import-id==5.7
 systemd-python==234
 Twisted==20.3.0
 txaio==20.4.1
-ufw==0.36
+#ufw==0.36
 unattended-upgrades==0.1
 uritemplate==3.0.1
 urllib3==1.25.9
