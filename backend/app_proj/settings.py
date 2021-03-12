@@ -33,9 +33,11 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -64,15 +66,10 @@ TEMPLATES = [
 CONNECTIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-ROOT_URLCONF = 'app_proj.urls'
-STATIC_URL = '/static/'
-
-#STATIC_ROOT = 'home/phillip/Projects/SeedSite/codebase/frontend/build'    
-# MEDIA_ROOT = 'app_proj/media'  
 
 # used by server files
-ASGI_APPLICATION = 'app_proj.routing.application'
-WSGI_APPLICATION = 'app_proj.wsgi.application'
+# ASGI_APPLICATION = 'app_proj.routing.application'
+# WSGI_APPLICATION = 'app_proj.wsgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
@@ -116,6 +113,7 @@ REACT_APP_DIR = os.path.join(os.path.dirname(BACKEND_PATH), 'frontend')
 #     os.path.join(REACT_APP_DIR, 'build'),
 # ]
 
+ALLOWED_HOSTS = ['*'] 
 CORS_ORIGIN_ALLOW_ALL = True  
 
 
@@ -123,10 +121,12 @@ CORS_ORIGIN_ALLOW_ALL = True
 SERVER
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+ROOT_URLCONF = 'app_proj.urls'
+STATIC_URL = '/static/'
+
 SECRET_KEY = 'v8oo&wtz8swcseni)1ekzg^e=0ta7b4u4s)xoqh&c#yx#@lq^%'
 DEBUG = True
-ALLOWED_HOSTS = ['*']   
-
+  
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True

@@ -19,7 +19,7 @@ export const RoutesConfig = [
     {
         title: 'Default',
         path: '',
-        component: PR.BaseWebsocket,
+        component: PR.BaseAxios,
         order: 0,
     },    
 ];

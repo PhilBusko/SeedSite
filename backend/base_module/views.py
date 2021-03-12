@@ -12,6 +12,8 @@ DATA_PATH = os.path.join(settings.BACKEND_PATH, 'base_module', 'data')
 @api_view(["GET"])
 def tabularData(request):
     
+    print("tabularData")
+
     # get lego data from the file
 
     legoPath = os.path.join(DATA_PATH, 'brickset_set_filter.csv')
