@@ -33,7 +33,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'app_proj.middleware.CorsMiddleware',
+    #'app_proj.middleware.CorsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -64,7 +64,6 @@ TEMPLATES = [
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 CONNECTIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 # used by server files
 ASGI_APPLICATION = 'app_proj.routing.application'
@@ -113,15 +112,9 @@ REACT_APP_DIR = os.path.join(os.path.dirname(BACKEND_PATH), 'frontend')
 # ]
 
 ALLOWED_HOSTS = ['*'] 
+CORS_ORIGIN_ALLOW_ALL = True  
 CORS_ALLOW_ALL_ORIGINS = True
-
-
-
-#CORS_ORIGIN_ALLOW_ALL = True  
-
 #CORS_ALLOW_CREDENTIALS = True
-
-
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
