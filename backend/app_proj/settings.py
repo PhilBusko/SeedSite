@@ -6,9 +6,9 @@ import os, sys, socket
 BACKEND_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # C:\Projects\SeedSite\codebase\backend
 
-# not sure why this needs to be added for daphne to run on production 
-# sys.path.append(BACKEND_PATH)
-# os.environ['PATH'] = f"{os.environ['PATH']};{BACKEND_PATH};"     # for windows only ?
+# some error with python environment makes this necessary for cloud
+sys.path.append(BACKEND_PATH)
+os.environ['PATH'] = f"{os.environ['PATH']};{BACKEND_PATH};"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
