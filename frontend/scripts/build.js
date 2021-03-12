@@ -14,7 +14,6 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 require('../config/env');
 
-
 const path = require('path');
 const chalk = require('react-dev-utils/chalk');
 const fs = require('fs-extra');
@@ -27,8 +26,7 @@ const printHostingInstructions = require('react-dev-utils/printHostingInstructio
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const printBuildError = require('react-dev-utils/printBuildError');
 
-const measureFileSizesBeforeBuild =
-  FileSizeReporter.measureFileSizesBeforeBuild;
+const measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild;
 const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
 const useYarn = fs.existsSync(paths.yarnLockFile);
 
@@ -130,9 +128,7 @@ checkBrowsers(paths.appPath, isInteractive)
 
 // Create the production build and print the deployment instructions.
 function build(previousFileSizes) {
-  // We used to support resolving modules according to `NODE_PATH`.
-  // This now has been deprecated in favor of jsconfig/tsconfig.json
-  // This lets you use absolute paths in imports inside large monorepos:
+
   if (process.env.NODE_PATH) {
     console.log(
       chalk.yellow(
@@ -145,11 +141,13 @@ function build(previousFileSizes) {
   console.log('Creating an optimized production build...');
 
   const compiler = webpack(config);
-  
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
       let messages;
+
       if (err) {
+        console.log("error");
+
         if (!err.message) {
           return reject(err);
         }
@@ -167,12 +165,19 @@ function build(previousFileSizes) {
           errors: [errMessage],
           warnings: [],
         });
-      } else {
+      }
+
+      else {
+        //console.log("formatWebpackMessages");
+
         messages = formatWebpackMessages(
           stats.toJson({ all: false, warnings: true, errors: true })
         );
       }
+
       if (messages.errors.length) {
+        console.log("messages.errors.length");
+
         // Only keep the first error. Others are often indicative
         // of the same problem, but confuse the reader with noise.
         if (messages.errors.length > 1) {
@@ -180,12 +185,10 @@ function build(previousFileSizes) {
         }
         return reject(new Error(messages.errors.join('\n\n')));
       }
-      if (
-        process.env.CI &&
-        (typeof process.env.CI !== 'string' ||
-          process.env.CI.toLowerCase() !== 'false') &&
-        messages.warnings.length
-      ) {
+
+      if (process.env.CI && messages.warnings.length && 
+         (typeof process.env.CI !== 'string' || process.env.CI.toLowerCase() !== 'false') ) 
+      {
         console.log(
           chalk.yellow(
             '\nTreating warnings as errors because process.env.CI = true.\n' +
@@ -195,10 +198,25 @@ function build(previousFileSizes) {
         return reject(new Error(messages.warnings.join('\n\n')));
       }
 
+      // console.log("\nMoving Build Files");
+      // doesnt work because files aren't in build folder yet
+
+      // var frontendPath = path.dirname(__dirname);
+      // var buildPath = path.resolve(frontendPath, 'build');
+      // console.log(buildPath);
+
+      // var cssPath = path.resolve(buildPath, 'build', 'static', 'css');
+
+      // fs.readdir(cssPath, (err, files) => {
+      //   files.forEach(file => {
+      //     console.log(file);
+      //   });
+      // });
+
       return resolve({
         stats,
         previousFileSizes,
-        warnings: messages.warnings,
+        warnings: [], //messages.warnings,
       });
     });
   });
