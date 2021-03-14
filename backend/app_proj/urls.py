@@ -2,9 +2,9 @@
 BACKEND URLS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 import os
-from django.conf import settings
 from django.conf.urls import url, include
 from django.http import HttpResponse
+from django.conf import settings
 from django.views.generic import View
 import base_module.views as BV
 
@@ -25,7 +25,7 @@ module_url = [
 urlpatterns = [
    url(r'^api/base-module/', include((module_url, 'module'))),
 
-   # base template 
+   # serve frontend app
    url(r'^', FrontendAppView.as_view())
 ]
 

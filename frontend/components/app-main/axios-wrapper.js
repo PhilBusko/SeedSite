@@ -11,7 +11,8 @@ console.log(window.location.hostname);
 
 let host = 'http://localhost:8000';
 if (window.location.host.includes('localhost') == false) 
-    host = `https://${window.location.host}:443`;
+  host = `http://${window.location.host}:80`;
+  //host = `https://${window.location.host}:443`;
 
 const axiosInstance = axios.create({
   baseURL: host,
